@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Girthy Game Night</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Jacquard+24&family=Nanum+Gothic+Coding&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+
+
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            font-family: "Nanum Gothic Coding", monospace;
+            font-weight: 400;
+            font-style: normal;
+            text-align: center;
+        }
+
+        .content {
+            max-width: 40%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
+            flex-direction: column;
+        }
+
+        .welcomeText,
+        .form {
+            width: 100%;
+        }
+
+        /*welcome text*/
+        .welcome {
+            height: 100px;
+            position: relative;
+            border-bottom: 1px solid;
+            overflow: hidden;
+        }
+
+        .greet {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 100%;
+            font-size: 5em;
+            text-align: center;
+            line-height: 100px;
+            transition: all .5s;
+            font-family: "Jacquard 24", system-ui;
+            opacity: 0;
+        }
+
+        /*taglines*/
+        .subText {
+            width: 100%;
+            height: 100px;
+            position: relative;
+            font-size: 1.75em;
+            overflow: hidden;
+        }
+
+        .subText p {
+            height: 100%;
+            line-height: 100px;
+            text-align: center;
+
+        }
+
+        .subTexts {
+            width: 100%;
+            position: absolute;
+            bottom: 100%;
+            text-align: center;
+            overflow: hidden;
+            transition: all .5s;
+        }
+
+        /*FORM*/
+        .form {
+            width: 100%;
+            height: 100px;
+            position: relative;
+        }
+
+        .sub {
+            margin: auto;
+            opacity: 0;
+            transition: all .5s;
+        }
+
+        .button {
+            width: 20%;
+            height: 100%;
+            border: none;
+            border-radius: 0 50px 50px 0;
+            font-size: 16px;
+            background-color: #49afcd;
+            background-image: linear-gradient(top, #5bc0de, #2f96b4);
+            cursor: pointer;
+            transition: all .5s;
+        }
+
+        .button:hover {
+            background: #2f96b4;
+            box-shadow: inset 0 1px 5px rgba(0, 0, 0, .3);
+        }
+
+        @media screen and (max-width:930px) {
+            .subTexts p {
+                font-size: 20px
+            }
+
+            .button {
+                font-size: 12px
+            }
+
+        }
+
+        @media screen and (max-width:600px) {
+
+            .content {
+                max-width: 80%;
+            }
+
+            .welcome,
+            .subText,
+            .sub {
+                background: rgba(255, 255, 255, .3);
+            }
+
+            .welcome {
+                border-radius: 20px 20px 0 0;
+                height: 340px;
+                overflow: visible;
+            }
+
+            .subText {
+                border-radius: 0 0 20px 20px;
+            }
+
+            .greet {
+                font-size: 100px
+            }
+
+            .subTexts p {
+                font-size: 16px;
+            }
+
+            .button {
+                font-size: 8px;
+                margin-right: -3%
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <div class="welcomeText">
+            <div class="welcome">
+                <h1 class="greet">Girthy Game Night</h1>
+            </div>
+            <div class="subText">
+                <div class="subTexts">
+                    <p class="subscribe">Get early access.</p>
+                    <p class="soon">Coming soon.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="form">
+            <div class="sub">
+                <a href="https://app.acuityscheduling.com/schedule.php?owner=32109465&appointmentType=61875644"
+                    target="_blank" class="acuity-embed-button"
+                    style="background: #5fb8b9; color: #fff; padding: 8px 12px; border: 0px; -webkit-box-shadow: 0 -2px 0 rgba(0,0,0,0.15) inset;-moz-box-shadow: 0 -2px 0 rgba(0,0,0,0.15) inset;box-shadow: 0 -2px 0 rgba(0,0,0,0.15) inset;border-radius: 4px; text-decoration: none; display: inline-block;">Let's
+                    go</a>
+                <link rel="stylesheet" href="https://embed.acuityscheduling.com/embed/button/32109465.css"
+                    id="acuity-button-styles" />
+                <script src="https://embed.acuityscheduling.com/embed/button/32109465.js" async></script>
+            </div>
+        </div>
+    </div>
+    <script>
+        window.addEventListener('load', function () {
+            var welcome = document.querySelector('.greet'),
+                subtext = document.querySelector('.subTexts'),
+                form = document.querySelector('.sub'),
+                delay = 1000;
+            setTimeout(function () { welcome.style.top = '0'; }, delay);
+            setTimeout(function () { welcome.style.opacity = '1'; }, delay);
+            setTimeout(function () { subtext.style.bottom = '0%'; }, delay * 2);
+            setTimeout(function () { subtext.style.bottom = '-100%'; }, delay * 4);
+            setTimeout(function () { form.style.opacity = '1'; }, delay * 5);
+        });
+    </script>
+</body>
+
+</html>
